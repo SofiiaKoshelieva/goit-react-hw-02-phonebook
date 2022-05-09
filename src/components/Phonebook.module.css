@@ -1,0 +1,17 @@
+.fieldset{
+    width: 200px;
+  
+}
+.input{
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+.li{
+    margin-bottom: 10px;
+}
+.button{
+    margin-left: 6px;
+}
+ .filter{
+     margin-left: 10px;
+ }
