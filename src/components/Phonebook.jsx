@@ -13,26 +13,19 @@ class Phonebook extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
-  onSubmit = e => {
-    e.preventDefault();
-    const name = e.currentTarget.elements.name.value;
-    const number = e.currentTarget.elements.number.value;
-    let sameName = false;
-    this.state.contacts.forEach(contact => {
-      if (contact.name === name) {
-        sameName = true;
-      }
-    });
+  onSubmit = data => {
+    const sameName = this.state.contacts.find(same => same.name === data.name);
     this.setState(prevState => {
       if (sameName) {
-        alert(`${name} is already in contacts.`);
+        alert(`${data.name} is already in contacts.`);
         return;
       }
       return {
-        contacts: [...prevState.contacts, { name, id: nanoid(), number }],
+        contacts: [
+          ...prevState.contacts,
+          { name: data.name, id: nanoid(), number: data.number },
+        ],
       };
     });
   };
